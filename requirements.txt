@@ -1,0 +1,14 @@
+numpy>=1.19.0
+pandas>=1.1.0
+matplotlib>=3.3.0
+scipy>=1.5.0
+yfinance>=0.1.63
+scikit-learn>=0.23.2
+gym>=0.17.3
+talipp>=1.0.0
+trendet>=0.1.0
+ta
+seaborn
+scipy
+torch
+pandas
