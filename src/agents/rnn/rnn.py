@@ -7,7 +7,7 @@ class RNN_DQN(nn.Module):
 
     def __init__(self, state_length, action_length, num_layers=1):
         super(RNN_DQN, self).__init__()
-        self.lstm = nn.LSTM(state_length, hidden_size=60,
+        self.lstm = nn.RNN(state_length, hidden_size=60,
                             num_layers=num_layers)
         self.dqn = DQN(60, action_length)
 
