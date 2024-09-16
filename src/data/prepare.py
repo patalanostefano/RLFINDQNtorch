@@ -27,10 +27,11 @@ def Prepare(data, action_name, gamma, n_step, batch_size, window_size, transacti
         # Calculate trend duration
         current_duration = 0.0
         current_trend = trend[0]
+        max_duration = window_size  # Set the maximum duration to match the window size
 
         for i in range(1, len(data)):
             if trend[i] == current_trend:
-                current_duration += 1.0
+                current_duration = min(current_duration + 1.0, max_duration)
             else:
                 current_duration = 1.0
                 current_trend = trend[i]
