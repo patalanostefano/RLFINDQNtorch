@@ -20,8 +20,8 @@ ReplayMemorySize = 36
 TARGET_UPDATE = 5
 n_episodes = 50
 window_size = 20
-trend_size = 160
-indicators = False
+trend_size = 72
+indicators = True
 
 # Data params
 ticker = '^HSI'
