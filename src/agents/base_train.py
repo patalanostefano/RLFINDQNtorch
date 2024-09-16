@@ -86,7 +86,7 @@ class BaseTrain:
 
         self.EPS_START = 0.9
         self.EPS_END = 0.05
-        self.EPS_DECAY = 0.0000005
+        self.EPS_DECAY = 500
 
         self.steps_done = 0
 
