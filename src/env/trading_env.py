@@ -22,7 +22,7 @@ class TradingEnv(gym.Env):
             "cuda" if torch.cuda.is_available() else "cpu")
         self.close_price = list(self.data['close'])
         self.action_name = action_name
-        self.code_to_action = {0: 'None', 1: 'buy', 2: 'sell'}
+        self.code_to_action = {0: 'buy', 1: 'None', 2: 'sell'}
         self.start_index_reward = start_index_reward
         self.trading_cost_ratio = transaction_cost
 
