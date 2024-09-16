@@ -7,9 +7,9 @@ class RNN_DQN(nn.Module):
 
     def __init__(self, state_length, action_length, num_layers=1):
         super(RNN_DQN, self).__init__()
-        self.lstm = nn.LSTM(state_length, hidden_size=180,
+        self.lstm = nn.LSTM(state_length, hidden_size=60,
                             num_layers=num_layers)
-        self.dqn = DQN(180, action_length)
+        self.dqn = DQN(60, action_length)
 
     def forward(self, x):
         # Assuming x is a tensor of shape (batch_size, state_length)
