@@ -48,16 +48,26 @@ class DataLoader:
         data = yf.download(
             self.DATA_NAME, start=self.begin_date, end=self.end_date)
         data.dropna(inplace=True)
-        data.rename(columns={'Close': 'close', 'Open': 'open',
-                    'High': 'high', 'Low': 'low', 'Adj Close': 'adj_close'}, inplace=True)
+        data.columns = data.columns.droplevel(1)
 
+        data.rename(columns={
+            'Adj Close': 'adj_close',
+            'Close': 'close',
+            'High': 'high',
+            'Low': 'low',
+            'Open': 'open',
+            'Volume': 'volume'
+        }, inplace=True)
+        
         zero_close = data[data['close'] == 0]
-        if not zero_close.empty:
-            print(
-                f"Warning: Found {len(zero_close)} rows with zero close price.")
-            print(zero_close)
 
+        if not zero_close.empty:
+            print(f"Warning: Found {len(zero_close)} rows with zero close price.")
+            print(zero_close)
+        
         print(f"Data loaded. Shape: {data.shape}")
+        print("\nSample of the data:")
+        print(data.head())
         return data
 
     def remove_extra_columns(self):
