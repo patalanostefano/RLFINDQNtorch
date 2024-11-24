@@ -9,7 +9,7 @@ def Prepare(data, action_name, gamma, n_step, batch_size, window_size, transacti
     if windowed:
 
         ohlcv_data = [OHLCV(o, h, l, c, v) for o, h, l, c, v in zip(
-            data['open'], data['high'], data['low'], data['close'], data['volume'])]
+            data['open'], data['high'], data['low'], data['close'], data['Volume'])]
 
         aroon = Aroon(window_size, ohlcv_data)
 
