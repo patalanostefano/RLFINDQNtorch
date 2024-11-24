@@ -8,8 +8,16 @@ from talipp.ohlcv import OHLCV
 def Prepare(data, action_name, gamma, n_step, batch_size, window_size, transaction_cost, windowed):
     if windowed:
 
+        # Create a copy to avoid modifying the original data
+        data_copy = data.copy()
+        
+        # Make sure we have the right column names
+        if 'Volume' in data_copy.columns:
+            data_copy.rename(columns={'Volume': 'volume'}, inplace=True)
+        
         ohlcv_data = [OHLCV(o, h, l, c, v) for o, h, l, c, v in zip(
-            data['open'], data['high'], data['low'], data['close'], data['Volume'])]
+            data_copy['open'], data_copy['high'], data_copy['low'], 
+            data_copy['close'], data_copy['volume'])]
 
         aroon = Aroon(window_size, ohlcv_data)
 
