@@ -56,7 +56,7 @@ class DataLoader:
             'High': 'high',
             'Low': 'low',
             'Open': 'open',
-            'Volume': 'Volume'
+            'Volume': 'volume'
         }, inplace=True)
         
         zero_close = data[data['close'] == 0]
