@@ -297,7 +297,7 @@ class BaseTrain:
         """
         data = self.data_train if test_type == 'train' else self.data_test
 
-        self.test_net.load_state_dict(torch.load(self.model_dir))
+        #self.test_net.load_state_dict(torch.load(self.model_dir))   //using gdrive instead
         # print('opening:', self.model_dir)
         self.test_net.to(device)
 
