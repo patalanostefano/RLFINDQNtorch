@@ -3,6 +3,8 @@ import numpy as np
 import pandas as pd
 from talipp.indicators import Aroon
 from talipp.ohlcv import OHLCV
+from sklearn.preprocessing import MinMaxScaler
+
 
 
 def Prepare(data, action_name, gamma, n_step, batch_size, window_size, transaction_cost, windowed):
@@ -46,6 +48,9 @@ def Prepare(data, action_name, gamma, n_step, batch_size, window_size, transacti
 
             data.at[i, 'trend_duration'] = current_duration
 
+
+        scaler = MinMaxScaler()
+        data['trend_duration'] = scaler.fit_transform(data[['trend_duration']])
         print('trended data:', data)
 
         env = TradingEnv(
