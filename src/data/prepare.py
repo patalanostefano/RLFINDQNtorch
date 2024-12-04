@@ -49,8 +49,8 @@ def Prepare(data, action_name, gamma, n_step, batch_size, window_size, transacti
             data.at[i, 'trend_duration'] = current_duration
 
 
-        scaler = MinMaxScaler()
-        data['trend_duration'] = scaler.fit_transform(data[['trend_duration']])
+        #scaler = MinMaxScaler()
+        #data['trend_duration'] = scaler.fit_transform(data[['trend_duration']])
         print('trended data:', data)
 
         env = TradingEnv(
