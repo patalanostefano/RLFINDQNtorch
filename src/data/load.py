@@ -30,7 +30,7 @@ class DataLoader:
                 if self.crypto:
                     self.add_adntrat()
 
-            self.remove_extra_columns()
+            #self.remove_extra_columns()
             self.normalize_data()
             self.data.to_csv(os.path.join(
                 self.DATA_PATH, 'data_processed.csv'), index=True)
@@ -51,7 +51,7 @@ class DataLoader:
         data.columns = data.columns.droplevel(1)
 
         data.rename(columns={
-            'Adj Close': 'adj_close',
+            #'Adj Close': 'adj_close',
             'Close': 'close',
             'High': 'high',
             'Low': 'low',
@@ -70,8 +70,8 @@ class DataLoader:
         print(data.head())
         return data
 
-    def remove_extra_columns(self):
-        self.data = self.data.drop(columns=['adj_close'])
+    #def remove_extra_columns(self):
+        #self.data = self.data.drop(columns=['adj_close'])
 
     def add_technical_indicators(self):
         print("Adding technical indicators")
