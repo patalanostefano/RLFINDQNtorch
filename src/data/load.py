@@ -118,7 +118,7 @@ class DataLoader:
     def normalize_data(self):
         print("Normalizing data")
         min_max_scaler = MinMaxScaler()
-        columns_to_normalize = []#'open', 'high', 'low', 'close', 'Volume']
+        columns_to_normalize = ['open', 'high', 'low', 'close', 'Volume']
         if self.include_indicators:
             columns_to_normalize.extend(
                 ['MACD', 'Signal', 'OBV', 'BB_Upper', 'BB_Lower', 'RSI', 'EMA'])
