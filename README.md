@@ -1,2 +1,2 @@
 # RLFINDQNtorch
- dqn for stock trading using yfinance and pytorch
+ DQN based Reinforcement Learning for stock trading using yfinance and pytorch
